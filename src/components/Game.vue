@@ -37,7 +37,7 @@
         </p>
       </div>
     </header>
-    <div class="gameplay mt-16 w-5/6 md:w-auto md:mt-5">
+    <div class="gameplay mt-16 w-11/12 md:w-auto md:mt-5">
       <pick-hand v-if="!getGameState" />
       <game-on v-if="getGameState" />
     </div>
