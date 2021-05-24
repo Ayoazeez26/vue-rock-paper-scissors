@@ -3,12 +3,19 @@
     <transition name="modal">
       <div class="modal-mask">
         <div class="modal-wrapper">
-          <div class="modal-container">
-            <div class="modal-header">
+          <div
+            class="modal-container flex flex-col items-center justify-between"
+          >
+            <div class="modal-header w-11/12">
               <slot name="header"
-                ><div class="flex justify-between items-center">
+                ><div
+                  class="flex justify-center md:justify-between items-center"
+                >
                   <p class="score text-2xl font-bold">RULES</p>
-                  <button class="modal-default-button" @click="$emit('close')">
+                  <button
+                    class="modal-default-button hidden md:block"
+                    @click="$emit('close')"
+                  >
                     <img src="../assets/img/icon-close.svg" alt="rules" />
                   </button></div
               ></slot>
@@ -18,6 +25,13 @@
               <slot name="body"
                 ><img src="../assets/img/image-rules.svg" alt="rules"
               /></slot>
+            </div>
+            <div
+              class="modal-footer flex items-center justify-center md:hidden"
+            >
+              <button class="modal-default-button" @click="$emit('close')">
+                <img src="../assets/img/icon-close.svg" alt="rules" />
+              </button>
             </div>
           </div>
         </div>
@@ -56,12 +70,6 @@ export default {};
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
 }
 
 .modal-body {
@@ -71,7 +79,15 @@ export default {};
 .modal-default-button {
   float: right;
 }
-
+@media screen and (max-width: 767px) {
+  .modal-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
 /*
  * The following styles are auto-applied to elements with
  * transition="modal" when their visibility is toggled

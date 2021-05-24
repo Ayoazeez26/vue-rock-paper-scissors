@@ -2,18 +2,22 @@
   <div class="pt-5 flex flex-col items-center">
     <header
       class="
-        px-6
-        py-5
+        px-4
+        py-3
+        md:px-6
+        md:py-5
         border
         flex
         items-center
         justify-between
-        rounded-2xl
-        w-1/2
+        rounded-lg
+        md:rounded-2xl
+        w-5/6
+        md:w-1/2
       "
     >
       <nav>
-        <img src="../assets/img/logo.svg" alt="logo" />
+        <img class="w-20 md:w-auto" src="../assets/img/logo.svg" alt="logo" />
       </nav>
       <div
         class="
@@ -22,23 +26,24 @@
           items-center
           bg-white
           rounded-lg
-          py-4
+          py-2
           h-full
-          w-32
+          w-20
         "
       >
-        <p class="uppercase text-sm">score</p>
-        <p class="score text-5xl font-bold">
+        <p class="uppercase text-xs md:text-sm">score</p>
+        <p class="score text-4xl md:text-5xl font-bold">
           {{ getScore ? getScore : 0 }}
         </p>
       </div>
     </header>
-    <div class="gameplay mt-5">
+    <div class="gameplay mt-16 w-5/6 md:w-auto md:mt-5">
       <pick-hand v-if="!getGameState" />
       <game-on v-if="getGameState" />
     </div>
     <button
       class="
+        rule-btn
         uppercase
         text-white text-lg
         border
@@ -47,7 +52,7 @@
         rounded-lg
         absolute
         bottom-10
-        right-20
+        md:right-20
         tracking-wider
       "
       id="show-modal"
@@ -88,5 +93,11 @@ header {
 }
 p.score {
   color: #3b4363;
+}
+@media screen and (max-width: 767px) {
+  .rule-btn {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 </style>

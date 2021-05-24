@@ -1,12 +1,15 @@
 <template>
   <div class="flex mt-16 pb-20 flex-col relative">
-    <div class="absolute -top-16 -left-10" @click="setHand('paper')">
+    <div class="absolute -top-16 -left-6 md:-left-10" @click="setHand('paper')">
       <hand class="paper">
         <img slot="handImage" src="../assets/img/icon-paper.svg" alt="paper" />
         <div slot="handAfter" class="semi paper-semi"></div>
       </hand>
     </div>
-    <div class="absolute -top-16 -right-10" @click="setHand('scissors')">
+    <div
+      class="absolute -top-16 -right-6 md:-right-10"
+      @click="setHand('scissors')"
+    >
       <hand class="scissors">
         <img
           slot="handImage"
@@ -16,7 +19,10 @@
         <div slot="handAfter" class="semi scissors-semi"></div>
       </hand>
     </div>
-    <div class="absolute bottom-16 rock-par" @click="setHand('rock')">
+    <div
+      class="absolute bottom-20 md:bottom-16 rock-par"
+      @click="setHand('rock')"
+    >
       <hand class="rock">
         <img
           slot="handImage"
@@ -85,32 +91,4 @@ export default {
 .scissors-semi {
   box-shadow: 0px 8px 1px 0px #ec9e0e;
 }
-/* .scissors::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 72px;
-  width: 144px;
-  border-radius: 0 0 150px 150px;
-  background-color: transparent;
-  z-index: -1;
-  border: 10px solid #eca922;
-  border-top: none;
-}
-.paper::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 72px;
-  width: 144px;
-  border-radius: 0 0 150px 150px;
-  background-color: transparent;
-  z-index: -1;
-  border: 10px solid rgba(255, 255, 255, 0.2);
-  border-top: none;
-} */
 </style>
