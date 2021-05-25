@@ -1,13 +1,16 @@
 <template>
   <div class="flex mt-16 pb-20 flex-col relative">
-    <div class="absolute -top-16 -left-6 md:-left-10" @click="setHand('paper')">
+    <div
+      class="absolute -top-10 md:-top-16 -left-0 md:-left-10"
+      @click="setHand('paper')"
+    >
       <hand class="paper">
         <img slot="handImage" src="../assets/img/icon-paper.svg" alt="paper" />
         <div slot="handAfter" class="semi paper-semi"></div>
       </hand>
     </div>
     <div
-      class="absolute -top-16 -right-6 md:-right-10"
+      class="absolute -top-10 md:-top-16 -right-0 md:-right-10"
       @click="setHand('scissors')"
     >
       <hand class="scissors">
@@ -90,5 +93,11 @@ export default {
 }
 .scissors-semi {
   box-shadow: 0px 8px 1px 0px #ec9e0e;
+}
+@media screen and (max-width: 768px) {
+  .semi {
+    width: 112px;
+    height: 112px;
+  }
 }
 </style>

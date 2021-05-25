@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-wrap justify-between items-center">
-    <div class="player-hand relative mr-5 md:mr-10 flex-flex-col">
+    <div class="player-hand relative md:mr-10 items-center flex flex-col">
       <p class="hidden md:block uppercase text-center text-white mb-5 text-xl">
         you picked
       </p>
-      <div class="relative h-40 w-36">
+      <div class="relative h-32 md:h-40 w-28 md:w-36">
         <div class="absolute">
           <hand :class="getPlayerHand">
             <img
@@ -48,15 +48,24 @@
         play again
       </button>
     </div>
-    <div class="house-hand relative ml-5 md:ml-10 flex-flex-col">
+    <div class="house-hand relative items-center md:ml-10 flex flex-col">
       <p class="hidden md:block uppercase text-center text-white mb-5 text-xl">
         the house picked
       </p>
-      <div class="relative h-40 w-36">
+      <div class="relative h-32 md:h-40 w-28 md:w-36">
         <div class="absolute">
           <div
             v-if="!getHouseState"
-            class="houseTemp h-40 w-40 rounded-full bg-black opacity-40"
+            class="
+              houseTemp
+              h-28
+              md:h-40
+              w-28
+              md:w-40
+              rounded-full
+              bg-black
+              opacity-40
+            "
           ></div>
           <hand v-if="getHouseState" :class="getHouseHand">
             <img

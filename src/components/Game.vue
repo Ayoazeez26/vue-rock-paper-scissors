@@ -50,8 +50,10 @@
         py-2
         px-10
         rounded-lg
-        absolute
+        md:absolute
         bottom-10
+        my-8
+        md:my-0
         md:right-20
         tracking-wider
       "
@@ -94,10 +96,10 @@ header {
 p.score {
   color: #3b4363;
 }
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .rule-btn {
     right: 50%;
     transform: translateX(50%);
   }
-}
+} */
 </style>

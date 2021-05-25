@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="w-screen h-screen">
+  <div id="app" class="md:w-screen min-h-screen md:h-screen">
     <Game />
   </div>
 </template>
