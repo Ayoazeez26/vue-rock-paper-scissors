@@ -38,8 +38,10 @@
       </div>
     </header>
     <div class="gameplay mt-16 w-11/12 md:w-auto md:mt-5">
-      <pick-hand v-if="!getGameState" />
-      <game-on v-if="getGameState" />
+      <transition name="fade" mode="out-in" appear>
+        <pick-hand v-if="!getGameState" />
+        <game-on v-if="getGameState" />
+      </transition>
     </div>
     <button
       class="
@@ -62,7 +64,9 @@
     >
       Rules
     </button>
-    <modal v-if="showModal" @close="showModal = !showModal" />
+    <transition name="fade-mod">
+      <modal v-if="showModal" @close="showModal = !showModal" />
+    </transition>
   </div>
 </template>
 

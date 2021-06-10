@@ -1,53 +1,61 @@
 <template>
   <div class="flex flex-wrap justify-between items-center">
-    <div class="player-hand relative md:mr-10 items-center flex flex-col">
-      <p class="hidden md:block uppercase text-center text-white mb-5 text-xl">
-        you picked
-      </p>
-      <div class="relative h-32 md:h-40 w-28 md:w-36">
-        <div class="absolute">
-          <hand :class="getPlayerHand">
-            <img
-              slot="handImage"
-              :src="playerImg(getPlayerHand)"
-              :alt="getPlayerHand"
-            />
-            <div
-              slot="handAfter"
-              :class="getPlayerHand + '-semi'"
-              class="semi"
-            ></div>
-          </hand>
+    <transition name="fade-player">
+      <div class="player-hand relative md:mr-10 items-center flex flex-col">
+        <p
+          class="hidden md:block uppercase text-center text-white mb-5 text-xl"
+        >
+          you picked
+        </p>
+        <div class="relative h-32 md:h-40 w-28 md:w-36">
+          <div class="absolute">
+            <hand :class="getPlayerHand">
+              <img
+                slot="handImage"
+                :src="playerImg(getPlayerHand)"
+                :alt="getPlayerHand"
+              />
+              <div
+                slot="handAfter"
+                :class="getPlayerHand + '-semi'"
+                class="semi"
+              ></div>
+            </hand>
+          </div>
         </div>
+        <p
+          class="block md:hidden uppercase text-center text-white mt-5 text-xl"
+        >
+          you picked
+        </p>
       </div>
-      <p class="block md:hidden uppercase text-center text-white mt-5 text-xl">
-        you picked
-      </p>
-    </div>
-    <div
-      v-if="getResState"
-      class="
-        judge-set
-        flex flex-col
-        items-center
-        order-last
-        md:order-none
-        w-full
-        mt-20
-        md:mt-0
-        md:w-auto
-      "
-    >
-      <h1 class="text-4xl text-white text-center font-bold mb-5 uppercase">
-        {{ getResult }}
-      </h1>
-      <button
-        @click="replaySet"
-        class="bg-white text-lg score uppercase hover:text-red-400 px-10 py-2"
+    </transition>
+    <transition name="fade-judge">
+      <div
+        v-if="getResState"
+        class="
+          judge-set
+          flex flex-col
+          items-center
+          order-last
+          md:order-none
+          w-full
+          mt-20
+          md:mt-0
+          md:w-auto
+        "
       >
-        play again
-      </button>
-    </div>
+        <h1 class="text-4xl text-white text-center font-bold mb-5 uppercase">
+          {{ getResult }}
+        </h1>
+        <button
+          @click="replaySet"
+          class="bg-white text-lg score uppercase hover:text-red-400 px-10 py-2"
+        >
+          play again
+        </button>
+      </div>
+    </transition>
     <div class="house-hand relative items-center md:ml-10 flex flex-col">
       <p class="hidden md:block uppercase text-center text-white mb-5 text-xl">
         the house picked
@@ -120,4 +128,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+
+</style>
